@@ -5,6 +5,8 @@
   "main": "./build/main.js",
   "scripts": {
     "build": "rimraf build && tsc && copyfiles -u 1 \"src/**/*.html\" build",
+    "run": "npm run build && electron-forge start",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
