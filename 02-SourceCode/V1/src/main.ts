@@ -13,4 +13,4 @@ const createWindow = () => {
   win.loadFile(`${__dirname}/index.html`)
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(createWindow);
