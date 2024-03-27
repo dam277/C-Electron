@@ -1,23 +1,20 @@
+/// <reference path="../../utils/declarations/Global.d.ts" />
 import React from "react";
 
-function Header() 
-{
-    async function toggleMode()
-    {
-        let isDarkMode;
+function Header() {
+    async function toggleMode() {
         const modeSelector = document.getElementById('darkMode') as HTMLSelectElement;
 
-        if (modeSelector)
-        {
-            
-            if (modeSelector.value == 'system')
-                isDarkMode = await darkMode.system()
+        if (modeSelector) {
+
+            if (modeSelector.value === 'system')
+                await darkMode.system()
             else
-                isDarkMode = await darkMode.toggle(modeSelector.value)
+                await darkMode.toggle(modeSelector.value)
         }
     }
 
-    return(
+    return (
         <div>
             Header
             <select onChange={() => toggleMode()} name="darkMode" id="darkMode">
@@ -28,5 +25,5 @@ function Header()
         </div>
     );
 }
-    
+
 export default Header;

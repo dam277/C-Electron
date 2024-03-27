@@ -3,14 +3,14 @@ import React from "react";
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom"
 
 // Import the pages
-import Home from './pages/views/Home.tsx'
-import About from './pages/views/About.tsx'
-import Works from './pages/views/Works.tsx'
+import Home from './pages/views/Home'
+import About from './pages/views/About'
+import Works from './pages/views/Works'
 
 // Import the includes
-import Nav from "./pages/includes/Nav.tsx";
-import Header from "./pages/includes/Header.tsx";
-import Footer from "./pages/includes/Footer.tsx";
+import Nav from "./pages/includes/Nav";
+import Header from "./pages/includes/Header";
+import Footer from "./pages/includes/Footer";
 
 /**
  * Routing component

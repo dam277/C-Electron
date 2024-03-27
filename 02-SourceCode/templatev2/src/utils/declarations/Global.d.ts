@@ -1,17 +1,14 @@
 declare let darkMode: DarkMode
 declare let versions: Versions
 
-
-interface Versions
-{
+interface Versions {
     node(): string
     chrome(): string
     electron(): string
     ping(): Promise<string>
 }
 
-interface DarkMode
-{
+interface DarkMode {
     toggle(value: string): Promise<boolean>
     system(): Promise<boolean>
 }

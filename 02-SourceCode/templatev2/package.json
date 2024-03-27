@@ -1,11 +1,11 @@
 {
-  "name": "electron-react2",
-  "version": "2.1.0",
+  "name": "electron-react-template",
+  "version": "0.0.0",
   "private": true,
   "main": "build/main.js",
   "author": "author_name",
   "homepage": "./",
-  "description": "An Electron app with React",
+  "description": "An Electron template app with React",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -14,11 +14,12 @@
     "cross-env": "^7.0.3",
     "electron": "^29.1.5",
     "electron-builder": "^24.13.3",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.1",
     "wait-on": "^7.2.0",
     "web-vitals": "^2.1.4"
   },
   "dependencies": {
-    "electron-router-dom": "^1.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
@@ -29,8 +30,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron:prod": "npm run build && electron .",
-    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.js"
+
+    "electron:build": "rimraf build && npm run build && tsc && tailwindcss -i ./public/main.css -o ./build/main.css",
+    "electron:start": "npm run electron:build && electron .",
+    "electron:dist": "npm run electron:build && electron-builder -c.extraMetadata.main=build/main.js"
   },
   "eslintConfig": {
     "extends": [

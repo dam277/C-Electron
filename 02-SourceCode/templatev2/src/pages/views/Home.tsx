@@ -3,7 +3,7 @@ import React from "react";
 function Home() 
 {
     return(
-        <div className="App">
+        <div className="bg-red-900">
             Home
         </div>
     );
