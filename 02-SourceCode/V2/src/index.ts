@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, nativeTheme, Menu, MenuItem } from 'electron';
 import path from 'node:path';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -20,8 +20,13 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
+
+const menu = new Menu()
+menu.append(new MenuItem({label: 'Hello', submenu: [{role: "help", accelerator: "CmdOrCtrl+Shift+H", click: () => {console.log("Hello")}}]}))
+
+Menu.setApplicationMenu(menu)
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -49,5 +54,17 @@ app.on('window-all-closed', () => {
   }
 });
 
+ipcMain.handle("dark-mode:toggle", (e, args: {mode: string, test: string}) => 
+{
+  if(args.mode == "dark")
+    nativeTheme.themeSource = "dark";
+  else
+    nativeTheme.themeSource = "light";
+});
+
+ipcMain.handle("dark-mode:system", () => 
+{
+  nativeTheme.themeSource = "system";
+});
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

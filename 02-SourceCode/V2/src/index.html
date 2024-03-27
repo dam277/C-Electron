@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
-    <p id="info"></p>
-  </body>
-  <script src="renderer.js"></script>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World!</title>
+        <!-- <link rel="stylesheet" href="index.css" /> -->
+        <link rel="stylesheet" href="main.css" />
+        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    </head>
+    <body>
+        <h1 class="bg-[#1da1f2]">💖 Hello World!</h1>
+        <p class="bg-fuchsia-800">Welcome to your Electron application.</p>
+        <p id="info"></p>
+        <select class="" onchange="toggleMode()" name="darkMode" id="darkMode">
+            <option value="system">System</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+        </select>
+    </body>
+    <script src="renderer.js"></script>
 </html>

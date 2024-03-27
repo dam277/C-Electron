@@ -1,4 +1,5 @@
-import { contextBridge, ipcRenderer } from 'electron'
+const { contextBridge, ipcRenderer } = require('electron')
+// import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld('versions', {
   node: () => process.versions.node,
@@ -10,6 +11,6 @@ contextBridge.exposeInMainWorld('versions', {
 
 contextBridge.exposeInMainWorld('darkMode', 
 {
-  toggle: (mode: string) => ipcRenderer.invoke('dark-mode:toggle', {mode: mode}),
+  toggle: (mode) => ipcRenderer.invoke('dark-mode:toggle', {mode: mode}),
   system: () => ipcRenderer.invoke('dark-mode:system')
 })
